@@ -148,7 +148,7 @@ def main():
     st.markdown(
         """
         <div style="padding: 1rem 0 1.5rem 0; border-left: 4px solid #5ba8ff; background: rgba(18, 36, 52, 0.7); border-radius: 14px; padding-left: 1.2rem; margin-bottom: 1rem;">
-            <h1 style="margin: 0; font-size: 2.3rem; font-weight: 800;">Health_CoRisk_Analyzer</h1>
+            <h1 style="margin: 0; font-size: 2.3rem; font-weight: 800;">Educational Dashboard Using Synthetic Healthcare Data for learning purpose</h1>
             <p style="margin: 0.5rem 0 0 0; color: #cfe0f9; font-size: 1.02rem;">
                 Cardiovascular risk intelligence dashboard for fast decision support and business-facing insight generation.
             </p>
