@@ -271,6 +271,37 @@ streamlit run app.py
 5. Open `jupyter_notebooks/Health_Co_Risk_analyzer.ipynb` and run the cells in sequence to review the full exploratory analysis.
 6. Open `jupyter_notebooks/Health_Co_Risk_ML_Comparison.ipynb` and run the cells in sequence to compare the three exploratory ML algorithms.
 
+## Kanban project dashboard
+
+Kanban project dashboard is used for the developement of the project. 
+the following is the link for it
+https://github.com/users/ghargelg-code26/projects/3
+
+### Heroku 
+### App Information:
+
+* App Name         health-co-risk-analyzer
+* App Link(Domain) https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/    
+* Region           United States
+* Stack            heroku-24
+* Frameworks       Python(version 3.12.14)
+* GitHub Repo      ghargelg-code26/Health_CoRisk_Analyzer
+* Heroku Git URL   https://git.heroku.com/health-co-risk-analyzer.git
+* Generation       Cedar
+* Latest Version Realease : Released v5 https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/ deployed to Heroku deployed to Heroku
+
+
+* The App live link is: https://smart-cart-analytics-0a5e54da0e9e.herokuapp.com/ 
+
+* The project was deployed to Heroku using the following steps.
+
+1. Log in to Heroku and create an App
+2. From the Deploy tab, select GitHub as the deployment method.
+3. Select your repository name and click Search. Once it is found, click Connect.
+4. Select the branch you want to deploy, then click Deploy Branch.
+5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App at the top of the page to access your App.
+6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+
 ## AI and Tool Usage
 
 AI-assisted tools were used to support the organisation of the analysis workflow, refine the notebook explanations, and improve the clarity and structure of the documentation. The final analytical work, visualisations, and interpretation were completed using Python libraries such as pandas, numpy, matplotlib, and seaborn.
