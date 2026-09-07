@@ -6,6 +6,8 @@ Health_CoRisk_Analyzer investigates how clinical and lifestyle factors relate to
 
 This project uses Python, pandas, numpy, matplotlib, and seaborn to perform ETL-style cleaning, feature engineering, and exploratory visual analysis. The output is a structured notebook-based workflow that is easy to follow and suitable for both technical and non-technical audiences.
 
+The project has been improvised from my previous project with git link as https://github.com/ghargelg-code26/CoRiskAnalyzer. It has been cloned with the same dataset and ETL notebook and hypothesis testing.
+
 ## Data App and Dashboard Requirement
 
 This project is designed as a data app and dashboard prototype in addition to a notebook-based analysis. The goal is to combine data analysis, visualisation, and a user-friendly interface so users can explore risk patterns quickly and make evidence-based decisions.
@@ -277,6 +279,8 @@ Kanban project dashboard is used for the developement of the project.
 the following is the link for it
 https://github.com/users/ghargelg-code26/projects/3
 
+** the Kanban project dashboard has been copied from my previous project as most of the project task's were similar. The link to the project is as follows https://github.com/users/ghargelg-code26/projects/2
+
 ### Heroku 
 ### App Information:
 
@@ -317,3 +321,5 @@ Health_CoRisk_Analyzer successfully demonstrates the value of data cleaning, fea
 ## Credits
 
 This project was developed as part of the Code Institute Data Analytics Capstone learning process. Support was provided through course materials, guidance, and practical exercises designed to build analytical and presentation skills.
+
+the credit goes to my previous project https://github.com/ghargelg-code26/CoRiskAnalyzer which has been taken as base foundation for improvement and better representation.
