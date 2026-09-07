@@ -114,7 +114,7 @@ The algorithm with the strongest F1-score is identified as the best exploratory 
 
 The ML notebook is intentionally independent of `app.py`. It does not change the dashboard, its filters, KPI cards, charts, or runtime behaviour. This keeps the existing business-facing app stable while providing a documented modelling comparison for further analysis.
 
-## Learning Outcomes and Pass Criteria Mapping
+## Learning Outcomes
 
 ### Understand ethical considerations, data privacy, and governance in data analytics practices
 
@@ -292,7 +292,7 @@ https://github.com/users/ghargelg-code26/projects/3
 * GitHub Repo      ghargelg-code26/Health_CoRisk_Analyzer
 * Heroku Git URL   https://git.heroku.com/health-co-risk-analyzer.git
 * Generation       Cedar
-* Latest Version Realease : Released v5 https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/ deployed to Heroku deployed to Heroku
+* Latest Version Realease : Released v9 https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/ deployed to Heroku deployed to Heroku
 
 
 * The App live link is: https://smart-cart-analytics-0a5e54da0e9e.herokuapp.com/ 
