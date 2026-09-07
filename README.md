@@ -289,10 +289,10 @@ https://github.com/users/ghargelg-code26/projects/3
 * Region           United States
 * Stack            heroku-24
 * Frameworks       Python(version 3.12.14)
-* GitHub Repo      ghargelg-code26/Health_CoRisk_Analyzer
+* GitHub Repo      https://github.com/ghargelg-code26/Health_CoRisk_Analyzer
 * Heroku Git URL   https://git.heroku.com/health-co-risk-analyzer.git
 * Generation       Cedar
-* Latest Version Realease : Released v9 https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/ deployed to Heroku deployed to Heroku
+* Latest Version Realease : Released v10 https://health-co-risk-analyzer-91efeef89f7c.herokuapp.com/ deployed to Heroku deployed to Heroku
 
 
 * The App live link is: https://smart-cart-analytics-0a5e54da0e9e.herokuapp.com/ 
