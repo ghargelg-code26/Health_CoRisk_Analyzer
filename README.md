@@ -1,75 +1,288 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Health_CoRisk_Analyzer
 
-## Template Instructions
+## Project Overview
 
-Welcome,
+Health_CoRisk_Analyzer investigates how clinical and lifestyle factors relate to heart attack risk and mortality risk in a patient dataset. The main focus is on understanding whether variables such as BMI, smoking status, blood pressure, family history, diabetes, medication adherence, and physical activity are associated with higher risk levels.
 
-This is the Code Institute student template for the three Data Analytics capstone projects. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+This project uses Python, pandas, numpy, matplotlib, and seaborn to perform ETL-style cleaning, feature engineering, and exploratory visual analysis. The output is a structured notebook-based workflow that is easy to follow and suitable for both technical and non-technical audiences.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+## Data App and Dashboard Requirement
 
-If you are working on the first capstone project, you can also delete `.python-version`, `.slugignore`, `Procfile` and `setup.sh` as they are only required for later dashboard projects. 
+This project is designed as a data app and dashboard prototype in addition to a notebook-based analysis. The goal is to combine data analysis, visualisation, and a user-friendly interface so users can explore risk patterns quickly and make evidence-based decisions.
 
-## How to use this repo
+The business requirement is to provide a fast analytics prototype that supports operational and clinical understanding of cardiovascular risk. In a professional environment, the value of the system is not only in producing charts but in helping stakeholders answer practical questions such as:
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+- Which patient groups show the highest heart attack risk?
+- How do smoking status, blood pressure, BMI, and adherence behaviour relate to risk outcomes?
+- Which risk factors deserve priority for interventions or monitoring?
 
-1. Copy the URL of your repository to your clipboard.
+The UI is therefore built around a simple decision-support workflow: data exploration, filtering, visual interpretation, and summary insight generation. The analysis is aligned with the business objective of identifying high-risk patterns that could inform prevention strategies, patient education, and service planning.
 
-1. In VS Code, select **File** -> **Open Folder**.
+This means the project reflects the professional expectation that data analysis and dashboard design must be driven by business context, not only technical output. The UI and underlying analysis are therefore linked to real organisational questions and designed to support rapid insight generation for stakeholders with different levels of technical expertise.
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+## Dataset
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open a new terminal.
+The project uses the dataset:
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+- Patient Comorbidity Risk Assessment Dataset
+- Source: Kaggle
+- Link: https://www.kaggle.com/datasets/velvetcrystal/patient-comorbidity-risk-assessment-dataset
+- File: `Datasets/Patient_Comorbidity_Risk_Assessment_Dataset.csv`
 
-1. In VS Code, select **File** > **Open Folder** again.
+The dataset includes patient-level information related to comorbidities, lifestyle behaviour, and risk indicators such as BMI, smoking status, blood pressure, family history, physical activity, diabetes, medication adherence, and predicted risk percentages.
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+## Business and Analytical Objective
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate. You need to create your virtual environment, also called a venv, and then activate it whenever you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+The aim of the project is to evaluate patient risk factors in a way that supports understanding of cardiovascular health risk. The analysis tests whether common clinical variables are associated with higher heart attack and mortality risk.
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+Key hypotheses explored:
 
-1. Choose **Venv** from the dropdown list.
+- Higher BMI is associated with higher `Heart_Attack_Risk_Percentage`.
+- Positive `Family_History_CVD` is associated with higher `Heart_Attack_Risk_Percentage`.
+- High BMI and family history together show a higher risk than either factor alone.
+- Current smoking is associated with higher `Heart_Attack_Risk_Percentage`.
+- High `Systolic_BP` (>= 140) is associated with higher `Mortality_Risk_Percentage`.
+- Low physical activity is associated with higher heart attack and mortality risk.
+- `Diabetes` is associated with higher `Mortality_Risk_Percentage`.
+- Low medication adherence is associated with higher `Mortality_Risk_Percentage`.
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+## Project Goals
 
-1. **DO NOT** click the box next to `requirements.txt`; you need to complete additional steps before installing your dependencies. Click **OK**.
+This project aims to:
 
-1. You will see a `.venv` folder appear in the file explorer pane, indicating that the virtual environment has been created.
+- clean and validate a health dataset
+- create meaningful features for risk analysis
+- explore group differences in heart attack and mortality risk
+- communicate findings clearly through narrative and visualisation
+- reflect on ethical, privacy, and governance issues in healthcare data analysis
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+## Methodology
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+### Data preparation
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+The notebook workflow includes:
 
- ```console
- pip3 install -r requirements.txt
- ```
+- importing the dataset
+- reviewing the dataset shape, columns, and dtypes
+- checking for missing or invalid values
+- converting numeric columns to suitable types
+- filling missing values using robust statistics such as medians
+- creating derived variables for analysis
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+### Feature engineering
 
-1. Click the **Kernel** button, then choose **Python Environments**.
+New variables were created to support the hypothesis testing, including:
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+- `BMI_Category`
+- `Obesity_Flag`
+- `Obesity_x_FH`
+- `Smoking_current`
+- `SBP_high`
+- `Low_Adherence`
+- `comorbidity_count`
 
-```console
-! python --version
+These engineered columns make the data easier to compare across categories and improve the clarity of the analysis.
+
+### Analysis techniques
+
+The project uses:
+
+- summary statistics
+- grouped averages
+- bar charts, boxplots, and violin plots
+- feature engineering for risk comparison
+- narrative interpretation of results
+
+### Machine-learning comparison
+
+The project also includes a separate exploratory machine-learning notebook:
+`jupyter_notebooks/Health_Co_Risk_ML_Comparison.ipynb`.
+
+This notebook compares three classification algorithms:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+
+The workflow uses `train_test_split`, preprocessing pipelines, model `.fit()` training, `.predict()` predictions, and evaluation with accuracy, precision, recall, F1-score, and ROC-AUC. It also includes performance charts, confusion matrices, and ROC curves.
+
+Because the source dataset provides a continuous `Heart_Attack_Risk_Percentage`, the notebook creates an exploratory `High_Heart_Attack_Risk` classification target using the dataset median as the cutoff. The supplied heart-attack and mortality risk columns are excluded from the model features to reduce target leakage.
+
+The algorithm with the strongest F1-score is identified as the best exploratory model because F1-score balances precision and recall when identifying higher-risk records. The result is not treated as a clinical recommendation: model performance requires external validation, and the target threshold is a project decision rather than a clinically approved definition.
+
+The ML notebook is intentionally independent of `app.py`. It does not change the dashboard, its filters, KPI cards, charts, or runtime behaviour. This keeps the existing business-facing app stable while providing a documented modelling comparison for further analysis.
+
+## Learning Outcomes and Pass Criteria Mapping
+
+### Understand ethical considerations, data privacy, and governance in data analytics practices
+
+Criteria:
+- 1.1 Examine ethical issues, data privacy, and governance in the project's methodology.
+- 1.2 Evaluate the legal and social implications of data handling and justify approaches that promote responsible and compliant practice.
+
+Evidence in this project:
+
+1.1 Ethical issues, data privacy, and governance are addressed through careful handling of the health dataset. The project uses a public research dataset, limits analysis to aggregated patterns, and avoids identifying or exposing individual patients. Bias and fairness are acknowledged by treating the findings as population-level observations rather than individual diagnoses. The methodology documents the cleaning and feature engineering steps transparently so ethical decisions are visible and reproducible.
+
+1.2 The project responds to legal and social implications by following responsible data handling practices consistent with GDPR principles, including data minimisation, secure local processing, restricted use of personally sensitive information, and transparent documentation of the source data and analytical workflow. Social implications are also considered by recognising that health-data findings can influence public perception and policy, so the project presents findings as evidence-based risk patterns rather than value judgments about individuals or groups.
+
+Supporting information implemented in the project:
+- privacy and fairness are discussed in the project narrative
+- the dataset is treated as a public aggregate research source rather than personal health records
+- the README and notebook explain that findings are general risk associations and not individual medical predictions
+
+### complex data insights to audiences
+
+Criteria:
+- 2.1 Clarify complex data insights and present them in a way that is accessible to both technical and non-technical audiences.
+- 2.2 Demonstrate the use of appropriate visualisations and narratives to enhance user understanding.
+- 2.3 Collate and organise project documentation using a structured approach to ensure clarity and accessibility.
+
+Evidence in this project:
+
+2.1 The results are communicated in a way that is understandable to both technical and non-technical audiences. Technical detail is preserved through grouped summaries, statistical comparisons, and feature engineering steps, while plain English explanations ensure that the broader meaning of the findings is easy to interpret. This is especially important for health-risk insights where the audience may include clinicians, analysts, and non-specialist stakeholders.
+
+2.2 The project uses a combination of visualisations and narrative guidance to support understanding. Bar charts compare risk by category, boxplots show threshold-based differences, and violin plots illustrate distribution patterns. The notebook and README include explanatory text alongside plots so the audience can understand not only the numbers but also why they matter.
+
+2.3 The project documentation is structured logically and consistently. It contains a clear introduction, dataset overview, methodology, feature engineering, findings, ethical governance discussion, and project reflection. This organisation makes the project easy to navigate and ensures clarity for assessments and future review.
+
+Supporting information implemented in the project:
+- visualisations are labelled clearly and matched to plain-language explanations
+- the README explains how the analysis is designed to communicate insights to different audiences
+- documentation is structured to improve accessibility and maintainability
+
+### Review and refine data analytics project plans
+
+Criteria:
+- 3.1 Collate and present a complete project plan, including implementation, maintenance, updates, and evaluation phases.
+- 3.2 Reflect on the practical challenges and considerations in executing the project.
+
+Evidence in this project:
+
+3.1 A complete project plan is included in the README and covers the full lifecycle of the analysis. The project moved through scoping, data acquisition, preparation, feature engineering, exploratory analysis, communication, update planning, and evaluation. This demonstrates the ability to plan and review a complete data analytics workflow rather than stopping at the initial analysis stage.
+
+3.2 The project includes reflective discussion on practical challenges. These include missing values, data cleaning requirements, interpretation of health factors, the need for clear visual communication, and the importance of fair interpretation. These reflections show the practical realities of executing a data project and the need to revise and improve the analysis as issues are identified.
+
+Supporting information implemented in the project:
+- the README includes a project plan with implementation, maintenance, update, and evaluation phases
+- a reflection section explains the main challenges encountered and the lessons learned
+- future improvements and review points are documented to show continuous project development
+
+## Project Plan
+
+1. Define scope and objective
+   - identify the research question and the health factors to analyse
+   - confirm the project aim and expected outputs
+
+2. Data collection and review
+   - source the dataset from Kaggle
+   - review structure, columns, and relevance to the research question
+
+3. Data cleaning and preparation
+   - handle missing values and convert columns to suitable data types
+   - prepare a reliable dataset for analysis
+
+4. Feature engineering and exploratory analysis
+   - build derived variables such as BMI category and treatment adherence flags
+   - compare risk groups using descriptive analysis and visualisation
+
+5. Interpretation and communication
+   - summarise patterns in clear language
+   - explain what the charts show and how they support the hypotheses
+
+6. Maintenance and updates
+   - re-run analysis after data corrections or additional records are added
+   - update code comments and documentation when findings evolve
+
+7. Evaluation and improvement
+   - review the project against the objectives
+   - identify limitations and potential future enhancements
+
+## Reflection on Project Challenges
+
+This project involved several practical challenges:
+
+- data quality issues, including missing values and inconsistent fields
+- the need for careful cleaning so that comparisons were meaningful
+- translating medical terms into simple explanatory language for non-technical readers
+- balancing technical analysis with ethical responsibility and avoidable bias
+
+These challenges were addressed through methodical cleaning, careful interpretation, and clear documentation, which supports a stronger and more defensible final project.
+
+## Key Findings
+
+The analysis suggests that the following variables are associated with higher risk levels:
+
+- higher BMI
+- positive family history of cardiovascular disease
+- current smoking status
+- elevated systolic blood pressure
+- lower physical activity
+- diabetes presence
+- low medication adherence
+
+The notebook shows these relationships through visual comparisons and grouped summaries. The results are intended to support understanding of risk patterns in the dataset rather than to provide individual medical advice.
+
+## Communication Strategy for Different Audiences
+
+To satisfy the requirement to present insights clearly to both technical and non-technical audiences, the project uses a blended communication approach:
+
+- technical readers can view grouped summaries, data engineering steps, and visual comparisons
+- non-technical readers can follow the charts, titles, explanations, and summary findings written in plain language
+- the notebook and README combine analytical detail with accessible narrative
+
+This ensures that the project remains understandable without losing analytical credibility.
+
+## Project Structure
+
+- `Datasets/` — source data
+- `jupyter_notebooks/` — notebooks containing ETL, EDA, visualisation, and ML comparison
+- `README.md` — project overview, methodology, ethics, governance, and plan
+- `requirements.txt` — project dependencies
+
+## Data App and Dashboard Requirement
+
+The project is designed as both a notebook-based analysis and a business-facing data app named Health_CoRisk_Analyzer. The goal is to combine data analysis, data visualisation, and an interactive user interface so users can explore risk patterns quickly and make evidence-based recommendations.
+
+In a professional business environment, the value of the system is not only in producing charts, but in helping stakeholders answer practical questions such as:
+
+- Which patient groups show the highest heart attack risk?
+- How do smoking status, blood pressure, BMI, and medication adherence relate to mortality risk?
+- Which risk factors should be prioritised for intervention or monitoring?
+
+The UI and the analysis are therefore aligned with organisational requirements and designed for rapid insight generation. The dashboard supports technical users with detailed metrics and non-technical users with simplified summaries and clear visual storytelling.
+
+## Setup and Run Instructions
+
+1. Open the project folder in VS Code.
+2. Create a virtual environment if needed.
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
-## Deployment Reminders
+4. Run the dashboard app:
 
-* The `.python-version`, `.slugignore`, `Procfile` and `setup.sh` files are necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3. 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack, currently supported version that most closely matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
+```bash
+streamlit run app.py
+```
 
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+5. Open `jupyter_notebooks/Health_Co_Risk_analyzer.ipynb` and run the cells in sequence to review the full exploratory analysis.
+6. Open `jupyter_notebooks/Health_Co_Risk_ML_Comparison.ipynb` and run the cells in sequence to compare the three exploratory ML algorithms.
+
+## AI and Tool Usage
+
+AI-assisted tools were used to support the organisation of the analysis workflow, refine the notebook explanations, and improve the clarity and structure of the documentation. The final analytical work, visualisations, and interpretation were completed using Python libraries such as pandas, numpy, matplotlib, and seaborn.
+
+## Reflection
+
+This project demonstrates how data analysis can be used to explore real-world health questions while still maintaining ethical responsibility and clear communication. The strongest learning outcome was the combination of technical analysis with transparent interpretation. It is not enough to produce charts; a strong data project must also explain why the results matter, who the audience is, and how the work remains fair and useful.
+
+## Conclusion
+
+Health_CoRisk_Analyzer successfully demonstrates the value of data cleaning, feature engineering, and exploratory data analysis in understanding cardiovascular risk. The project satisfies the assessed learning outcomes by combining technical analysis with ethical awareness, governance thinking, audience-focused communication, and a structured review of the project plan.
+
+## Credits
+
+This project was developed as part of the Code Institute Data Analytics Capstone learning process. Support was provided through course materials, guidance, and practical exercises designed to build analytical and presentation skills.
